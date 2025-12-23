@@ -251,7 +251,7 @@ class Card {
                 </div>
               </div>
               <div class="rating-item card-${this.getColor()}-bg">
-                <h6>AI suitablity</h6>
+                <h6>AI suitability</h6>
                 <div class="rating-icon">
                  ${this.starRating(this.data.AISuitability)}
                 </div>
