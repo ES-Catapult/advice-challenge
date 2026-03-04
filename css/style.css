@@ -99,12 +99,14 @@ body {
 }
 
 .card-section .card {
-    width: 320px;
+    width: 340px;
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
     animation: slideIn 0.5s ease-in-out;
-    margin: 10px
+    margin: 10px;
+    /*padding: 20px;*/
+    box-sizing: content-box
 }
 
 .card-section .card .card-content .card-side {
@@ -180,19 +182,19 @@ body {
 }
 
 .card-section .card .card-content .card-side .icon.icon-1 {
-    bottom: 50%
+    bottom: 54%
 }
 
 .card-section .card .card-content .card-side .icon.icon-2 {
-    bottom: 31%
+    bottom: 40%
 }
 
 .card-section .card .card-content .card-side .icon.icon-3 {
-    bottom: 18%
+    bottom: 28%
 }
 
 .card-section .card .card-content .card-side .icon.icon-4 {
-    bottom: 4%
+    bottom: 16%
 }
 
 .card-section .card .card-content .card-side .icon.icon-hidden {
@@ -201,13 +203,15 @@ body {
 
 .card-section .card .card-content .card-content-img {
     height: 220px;
-    background-color: #ffffff
+    width: 100%;
+    background-color: #ffffff;
+    /*padding-right: 20px;*/
 }
 
 .card-section .card .card-content .card-content-text {
     height: 240px;
     position: relative;
-    padding: 24px 20px 20px 100px
+    padding: 15px 40px 20px 90px
 }
 
 .card-section .card .card-content .card-content-text p {
@@ -217,9 +221,9 @@ body {
 }
 
 .card-section .card .card-content .card-content-text .rating {
-    top: -77px;
+    top: -87px;
     position: absolute;
-    right: 12px
+    right: 43px
 }
 
 .card-section .card .card-content .card-content-text .rating-item {

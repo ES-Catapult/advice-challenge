@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 from PIL import Image
 
 # --- CONFIG ---
-BASE_URL = "https://es-catapult.github.io/advice-challenge/"
+BASE_URL = "http://localhost:8011/index.html" # Running local server to serve the modified cards
 OUTPUT_DIR = os.path.abspath("pdfs")
 CARD_SELECTOR = ".card.fadeIn"  # matches all colour variants
 CARD_WIDTH_IN = 2.74

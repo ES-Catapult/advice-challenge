@@ -4,10 +4,10 @@ class CardReader {
         this.jsonURL = jsonURL; // Where the JSON file is
         this.jsonData = []; // Property to store JSON data
         this.filters = { // Each filter, needs to be handled in appliesFilter method  
-            sector: null, 
+            sector: null,
             aiCapabilities: null,
             grandChallange: null,
-            searchText: '', 
+            searchText: '',
             scoreImpact: null,
             scoreAI: null,
             scoreNovelty: null,
@@ -55,26 +55,26 @@ class CardReader {
             );
         }
 
-	// Challange Filter
+        // Challange Filter
         if (this.filters.challenge && this.filters.challenge.length > 0) {
             filteredData = filteredData.filter(item => this.filters.challenge == item.challenge.toLowerCase());
         }
 
-	// Score Impact Filter
+        // Score Impact Filter
         if (this.filters.scoreImpact && this.filters.scoreImpact.length > 0) {
             filteredData = filteredData.filter(item =>
                 item.Impact == this.filters.scoreImpact
             );
         }
 
-	// Score AI Filter
+        // Score AI Filter
         if (this.filters.scoreAI && this.filters.scoreAI.length > 0) {
             filteredData = filteredData.filter(item =>
                 item.AISuitability == this.filters.scoreAI
             );
         }
 
-	// Score Novelty
+        // Score Novelty
         if (this.filters.scoreNovelty && this.filters.scoreNovelty.length > 0) {
             filteredData = filteredData.filter(item =>
                 item.Novelty == this.filters.scoreNovelty
@@ -251,7 +251,7 @@ class Card {
                 </div>
               </div>
               <div class="rating-item card-${this.getColor()}-bg">
-                <h6>AI suitablity</h6>
+                <h6>AI suitability</h6>
                 <div class="rating-icon">
                  ${this.starRating(this.data.AISuitability)}
                 </div>
@@ -271,7 +271,7 @@ class Card {
 }
 
 // Launch loading cards and filter
-$(document).ready(function() {
+$(document).ready(function () {
 
     const cardReader = new CardReader('data.json');
     cardReader.fetchData().then(() => {
@@ -286,18 +286,18 @@ $(document).ready(function() {
 // Setup filters
 function setupFilters(cardReader) {
 
-    $('#searchBox').on('input', function() {
+    $('#searchBox').on('input', function () {
         cardReader.filters.searchText = $(this).val();
         cardReader.loadCards();
     });
 
-    $('.sector-filter').on('change', 'input[type="checkbox"]', function() {
+    $('.sector-filter').on('change', 'input[type="checkbox"]', function () {
 
         // Create an array to store selected sectors
         const selectedSectors = [];
 
         // Loop through all checkboxes and add selected sectors to the array
-        $('.sector-filter input:checked').each(function() {
+        $('.sector-filter input:checked').each(function () {
             selectedSectors.push($(this).val());
         });
 
@@ -309,13 +309,13 @@ function setupFilters(cardReader) {
     });
 
 
-    $('.ai-capabilities-filter').on('change', 'input[type="checkbox"]', function() {
+    $('.ai-capabilities-filter').on('change', 'input[type="checkbox"]', function () {
 
         // Create an array to store selected sectors
         const selectedAICapabilities = [];
 
         // Loop through all checkboxes and add selected sectors to the array
-        $('.ai-capabilities-filter input:checked').each(function() {
+        $('.ai-capabilities-filter input:checked').each(function () {
             selectedAICapabilities.push($(this).val());
         });
 
@@ -326,13 +326,13 @@ function setupFilters(cardReader) {
         cardReader.loadCards();
     });
 
-    $('.gc-filter').on('change', 'select', function() {
+    $('.gc-filter').on('change', 'select', function () {
 
         cardReader.filters.challenge = $(this).val() == 'all' ? null : $(this).val();
         cardReader.loadCards();
     })
 
-    $(".score").bind("change", function() {
+    $(".score").bind("change", function () {
 
         var name = jQuery(this).attr("name");
 
@@ -346,9 +346,9 @@ function setupFilters(cardReader) {
 
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Add click event listener to dynamically added star divs
-    $('.scores-filter').on('click', '.btn-star', function() {
+    $('.scores-filter').on('click', '.btn-star', function () {
         var value = $(this).data("star");
         var currentStar = $(this);
         var starContainer = currentStar.closest('.d-flex');
@@ -376,21 +376,21 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('#toggler').click(function() {
+    $('#toggler').click(function () {
         $('#toggler').toggleClass("arrow-down");
         $('#toggler').toggleClass("arrow-up");
     });
 
-    $(function() {
+    $(function () {
         $('[data-bs-toggle="tooltip"]').tooltip();
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Show/hide the button based on scroll position
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('#scrollToTopBtn').fadeIn();
         } else {
@@ -399,7 +399,7 @@ $(document).ready(function() {
     });
 
     // Scroll to top when the button is clicked
-    $('#scrollToTopBtn').click(function() {
+    $('#scrollToTopBtn').click(function () {
         $('html, body').animate({
             scrollTop: 0
         }, 'slow');
@@ -407,7 +407,7 @@ $(document).ready(function() {
     });
 
     // Scrolls to top when toggle up is clicked	
-    $('#toggler').click(function() {
+    $('#toggler').click(function () {
         if ($(this).hasClass("arrow-down")) {
             $('html, body').animate({
                 scrollTop: 0
